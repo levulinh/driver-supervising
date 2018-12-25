@@ -74,7 +74,7 @@ export default app => {
         dob,
         certiType,
       }).save();
-      return res.send({ data: { users: newUser } });
+      return res.send({ data: { user: newUser } });
     } catch (err) {
       throw err;
     }
@@ -83,7 +83,7 @@ export default app => {
   app.get('/api/user/all', async (req, res) => {
     try {
       const users = await User.find({}).exec();
-      res.send(users);
+      res.send({ data: { users } });
     } catch (error) {
       res.status(422).json({
         errors: { global: 'Unknown error' },
