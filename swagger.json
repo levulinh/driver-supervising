@@ -110,14 +110,21 @@
           "User"
         ],
         "parameters": [
-          {}
+          {
+            "name": "user",
+            "description": "Các thông tin về User",
+            "in": "body",
+            "schema": {
+              "$ref":"#/definitions/User"
+            }
+          }
         ],
-        "description": "Lấy thông tin tất cả user",
+        "description": "Thêm một User vào database",
         "responses": {
           "200": {
-            "description": "Thông tin của tất cả User",
+            "description": "Thông tin của User mới",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/User"
             }
           },
           "401": {
