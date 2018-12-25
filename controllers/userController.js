@@ -76,7 +76,7 @@ export default app => {
     }
   });
 
-  app.get('/api/allUser/', async (req, res) => {
+  app.get('/api/user/all', async (req, res) => {
     try {
       const users = await User.find({}).exec();
       res.send(users);

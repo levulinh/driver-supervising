@@ -84,6 +84,47 @@
           }
         }
       }
+    },
+    "/api/user/all": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Lấy thông tin tất cả user",
+        "responses": {
+          "200": {
+            "description": "Thông tin của tất cả User",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "401": {
+            "description": "Lỗi lấy thông tin user"
+          }
+        }
+      }
+    },
+    "/api/user/add": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {}
+        ],
+        "description": "Lấy thông tin tất cả user",
+        "responses": {
+          "200": {
+            "description": "Thông tin của tất cả User",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          },
+          "401": {
+            "description": "Lỗi lấy thông tin user"
+          }
+        }
+      }
     }
   },
   "definitions": {

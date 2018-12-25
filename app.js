@@ -15,7 +15,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const configs = require('./configs');
 
-mongoose.connect(configs.MONGO_URI, { useNewUrlParser: true , useCreateIndex: true});
+mongoose.connect(configs.MONGO_URI, { useNewUrlParser: true, useCreateIndex: true });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -54,13 +54,12 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen({ port: process.env.PORT || 4000 }, () =>
-  console.log(`Server ready `)
-)
+server.listen({ port: process.env.PORT || 4000 }, () => console.log('Server ready '),
+);
 module.exports = app;
