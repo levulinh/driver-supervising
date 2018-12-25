@@ -74,7 +74,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Thông tin của admin",
+            "description": "Thông tin của admin, kết quả trong data.user",
             "schema": {
               "$ref": "#/definitions/Admin"
             }
@@ -93,7 +93,7 @@
         "description": "Lấy thông tin tất cả user",
         "responses": {
           "200": {
-            "description": "Thông tin của tất cả User",
+            "description": "Thông tin của tất cả User, kết quả trong data.users",
             "schema": {
               "$ref": "#/definitions/Users"
             }
