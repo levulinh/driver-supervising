@@ -2,6 +2,7 @@ import passport from 'passport';
 import swaggerUi from 'swagger-ui-express';
 import UserController from './controllers/userController';
 
+const http = require('http');
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -14,7 +15,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const configs = require('./configs');
 
-mongoose.connect(configs.MONGO_URI, { useNewUrlParser: true });
+mongoose.connect(configs.MONGO_URI, { useNewUrlParser: true , useCreateIndex: true});
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -53,4 +54,13 @@ app.use((err, req, res, next) => {
   res.render('error');
 });
 
+var server = http.createServer(app);
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen({ port: process.env.PORT || 4000 }, () =>
+  console.log(`Server ready `)
+)
 module.exports = app;
