@@ -24,10 +24,6 @@ const UserSchema = new Schema({
   learningTime: {
     type: Number, required: true, default: 0,
   },
-  password: {
-    type: String,
-    required: true,
-  },
 });
 
 const AdminSchema = new Schema({

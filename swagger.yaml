@@ -1,0 +1,99 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Driver Supervising Server API
+  description: Mandevices server
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+host: localhost:3000
+basePath: "/"
+tags:
+- name: Users
+  description: API cho phần người dùng
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  "/api/admin/signup":
+    post:
+      tags:
+      - Admin
+      description: Tạo Admin mới trong csdl
+      parameters:
+      - name: email
+        in: body
+        required: true
+        description: Địa chỉ email của admin
+        type: string
+      - name: password
+        in: body
+        required: true
+        description: Mật khẩu cho admin mới
+        type: string
+      responses:
+        '200':
+          description: Admin mới đã được tạo
+          schema:
+            "$ref": "#/definitions/Admin"
+        '401':
+          description: Lỗi tạo admin
+  "/api/admin/login":
+    post:
+      tags:
+      - Admin
+      description: Đăng nhập admin
+      parameters:
+      - name: email
+        in: body
+        required: true
+        description: Địa chỉ email của admin
+        type: string
+      - name: password
+        in: body
+        required: true
+        description: Mật khẩu của admin
+        type: string
+      responses:
+        '200':
+          description: Thông tin của admin
+          schema:
+            "$ref": "#/definitions/Admin"
+        '401':
+          description: Lỗi đăng nhập
+definitions:
+  User:
+    required:
+    - fullName
+    - idCode
+    - phone
+    - dob
+    - certiType
+    properties:
+      fullName:
+        type: string
+      idCode:
+        type: string
+        uniqueItems: true
+      phone:
+        type: string
+      dob:
+        type: string
+      certiType:
+        type: string
+  Admin:
+    required:
+    - email
+    - password
+    properties:
+      email:
+        type: string
+        uniqueItems: true
+      password:
+        type: string
+  Users:
+    type: array
+    "$ref": "#/definitions/User"
