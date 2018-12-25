@@ -1,0 +1,18 @@
+{
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true
+  },
+  "extends": "airbnb-base",
+  "rules": {
+    "function-paren-newline": "off",
+    "no-console": "off",
+    "arrow-parens": "off",
+    "global-require": "off",
+    "space-before-function-paren": "off",
+    "import/prefer-default-export": "off",
+    "consistent-return": "off",
+    "linebreak-style": "off"
+  }
+}
