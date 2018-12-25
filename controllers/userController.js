@@ -73,13 +73,11 @@ export default app => {
   app.get('/api/allUser/', async (req, res) => {
     try {
       const users = await User.find({}).exec();
+      res.send(users);
     } catch (error) {
       res.status(422).json({
         errors: { global: 'Unknown error' },
       });
     }
-
-
   });
-
 };
