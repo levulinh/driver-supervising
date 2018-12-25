@@ -4,11 +4,17 @@ import passport from 'passport';
 import { User, Admin } from '../models';
 
 const saltRounds = 10;
+const emailRegex = /\S+@\S+\.\S+/;
 
 export default app => {
   app.post('/api/admin/signup', async (req, res) => {
     try {
       const { email, password } = req.body;
+      if (!email.match(emailRegex)) {
+        return res.status(400).json({
+          errors: { global: 'Địa chỉ email không hợp lệ' },
+        });
+      }
       const admin = await Admin.findOne({ email });
       if (admin) {
         return res.status(401).json({

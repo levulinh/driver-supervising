@@ -24,16 +24,11 @@ paths:
       - Admin
       description: Tạo Admin mới trong csdl
       parameters:
-      - name: email
+      - name: admin
         in: body
-        required: true
-        description: Địa chỉ email của admin
-        type: string
-      - name: password
-        in: body
-        required: true
-        description: Mật khẩu cho admin mới
-        type: string
+        description: Thông tin về admin mới như trong model
+        schema:
+          "$ref": "#/definitions/Admin"
       responses:
         '200':
           description: Admin mới đã được tạo
@@ -47,16 +42,11 @@ paths:
       - Admin
       description: Đăng nhập admin
       parameters:
-      - name: email
+      - name: admin
         in: body
-        required: true
-        description: Địa chỉ email của admin
-        type: string
-      - name: password
-        in: body
-        required: true
-        description: Mật khẩu của admin
-        type: string
+        description: Thông tin về admin mới như trong model
+        schema:
+          "$ref": "#/definitions/Admin"
       responses:
         '200':
           description: Thông tin của admin
@@ -84,6 +74,11 @@ definitions:
         type: string
       certiType:
         type: string
+      model:
+        type: string
+      learningTime:
+        type: number
+        default: 0
   Admin:
     required:
     - email

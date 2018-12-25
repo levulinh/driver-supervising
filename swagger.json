@@ -111,6 +111,13 @@
         },
         "certiType": {
           "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "learningTime": {
+          "type": "number",
+          "default": 0
         }
       }
     },
