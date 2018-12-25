@@ -46,7 +46,11 @@ export default app => {
         if (error) {
           return next(error);
         }
-        return res.send(user);
+        return res.send({
+          data: {
+            user,
+          },
+        });
       });
     })(req, res, next);
   });
@@ -70,7 +74,7 @@ export default app => {
         dob,
         certiType,
       }).save();
-      return res.send(newUser);
+      return res.send({ data: { users: newUser } });
     } catch (err) {
       throw err;
     }
