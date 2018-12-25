@@ -3,7 +3,6 @@ tmp
 .vscode
 .vs
 dist
-package.json
 package-log.json
 .eslintrc
 .babelrc
