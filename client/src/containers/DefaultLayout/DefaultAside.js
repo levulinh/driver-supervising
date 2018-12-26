@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Nav, NavItem, NavLink, Progress, TabContent, TabPane, ListGroup, ListGroupItem } from 'reactstrap';
+import { Nav, NavItem, NavLink, TabContent, TabPane, ListGroup, ListGroupItem } from 'reactstrap';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { AppSwitch } from '@coreui/react'
+// import {Image} from 'semantic-ui-react'
+// import { AppSwitch } from '@coreui/react'
 
 const propTypes = {
   children: PropTypes.node,
@@ -67,9 +68,7 @@ class DefaultAside extends Component {
             <ListGroup className="list-group-accent" tag={'div'}>
               <ListGroupItem className="list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-warning list-group-item-divider">
-                <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com"></img>
-                </div>
+           
                 <div>Meeting with <strong>Lucas</strong> </div>
                 <small className="text-muted mr-3">
                   <i className="icon-calendar"></i>&nbsp; 1 - 3pm
@@ -79,9 +78,7 @@ class DefaultAside extends Component {
                 </small>
               </ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-info list-group-item-divider">
-                <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com"></img>
-                </div>
+            
                 <div>Skype with <strong>Megan</strong></div>
                 <small className="text-muted mr-3">
                   <i className="icon-calendar"></i>&nbsp; 4 - 5pm
@@ -91,28 +88,7 @@ class DefaultAside extends Component {
                 </small>
               </ListGroupItem>
               <ListGroupItem className="list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Tomorrow</ListGroupItem>
-              <ListGroupItem action tag="a" href="#" className="list-group-item-accent-danger list-group-item-divider">
-                <div>New UI Project - <strong>deadline</strong></div>
-                <small className="text-muted mr-3"><i className="icon-calendar"></i>&nbsp; 10 - 11pm</small>
-                <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
-                <div className="avatars-stack mt-2">
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                </div>
-              </ListGroupItem>
+         
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-success list-group-item-divider">
                 <div><strong>#10 Startups.Garden</strong> Meetup</div>
                 <small className="text-muted mr-3"><i className="icon-calendar"></i>&nbsp; 1 - 3pm</small>
@@ -122,34 +98,12 @@ class DefaultAside extends Component {
                 <div><strong>Team meeting</strong></div>
                 <small className="text-muted mr-3"><i className="icon-calendar"></i>&nbsp; 4 - 6pm</small>
                 <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
-                <div className="avatars-stack mt-2">
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                  <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/8.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
-                  </div>
-                </div>
+              
               </ListGroupItem>
             </ListGroup>
           </TabPane>
           <TabPane tabId="2" className="p-3">
-            <div className="message">
+            {/* <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
                   <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
@@ -232,10 +186,10 @@ class DefaultAside extends Component {
               <small className="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt...
               </small>
-            </div>
+            </div> */}
           </TabPane>
           <TabPane tabId="3" className="p-3">
-            <h6>Settings</h6>
+            {/* <h6>Settings</h6>
 
             <div className="aside-options">
               <div className="clearfix mt-4">
@@ -303,7 +257,7 @@ class DefaultAside extends Component {
               <small><b>SSD 2 Usage</b></small>
             </div>
             <Progress className="progress-xs" color="success" value="10" />
-            <small className="text-muted">25GB/256GB</small>
+            <small className="text-muted">25GB/256GB</small> */}
           </TabPane>
         </TabContent>
       </React.Fragment>

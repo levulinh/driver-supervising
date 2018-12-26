@@ -2,23 +2,22 @@ import React, {
   Component
 } from 'react'
 import PropTypes from 'prop-types'
-import { Container, Icon, Table } from 'semantic-ui-react';
+import { Container, Table, Button } from 'semantic-ui-react';
 import { allStudents } from '../actions/auth'
 import { connect } from 'react-redux'
 import _ from 'lodash'
-
 
 
 class DashBoard extends Component {
   static propTypes = {
     prop: PropTypes
   }
+  componentWillMount() {
+    this.props.allStudents()
+  }
 
   render() {
-    window.props = this.props;
-    this.props.allStudents()
     const { user } = this.props
-    console.log('this.props.user', user)
     return (
       <Container fluid>
         <Table striped>
@@ -34,18 +33,21 @@ class DashBoard extends Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {user != undefined && user.length != 0 ? _.map(user,(o,index) =>  <Table.Row>
-                <Table.Cell>{index+1}</Table.Cell>
-                <Table.Cell>{o.fullName}</Table.Cell>
-                <Table.Cell>{o.idCode}</Table.Cell>
-                <Table.Cell>{o.dob}</Table.Cell>
-                <Table.Cell>{o.phone}</Table.Cell>
-                <Table.Cell>{o.certiType}</Table.Cell>
-                <Table.Cell>{o.learningTime}</Table.Cell>
-              </Table.Row>
+            {user !== undefined && user.length !== 0 ? _.map(user, (o, index) => <Table.Row>
+              <Table.Cell>{index + 1}</Table.Cell>
+              <Table.Cell>{o.fullName}</Table.Cell>
+              <Table.Cell>{o.idCode}</Table.Cell>
+              <Table.Cell>{o.dob}</Table.Cell>
+              <Table.Cell>{o.phone}</Table.Cell>
+              <Table.Cell>{o.certiType}</Table.Cell>
+              <Table.Cell>{Math.round(o.learningTime * 1000) / 1000}</Table.Cell>
+              <Table.Cell collapsing>
+                <Button circular icon='delete' color='red' />
+              </Table.Cell>
+            </Table.Row>
             )
-             : null}
-     
+              : null}
+
           </Table.Body>
         </Table>
       </Container>

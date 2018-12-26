@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import { Button, Card, CardBody, CardGroup, Col, Container, Row } from 'reactstrap';
 import { Form, Input,Message } from 'semantic-ui-react'
 import Validator from 'validator'
 import PropTypes from 'prop-types'

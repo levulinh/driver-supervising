@@ -58,8 +58,8 @@ export default app => {
       } = req.body;
       const user = await User.findOne({ idCode });
       if (user) {
-        return res.status(401).json({
-          errors: { global: 'Người dùng này đã tồn tại' },
+        return res.status(400).json({
+          errors: 'Người dùng này đã tồn tại'
         });
       }
 
@@ -78,13 +78,80 @@ export default app => {
 
   app.get('/api/user/all', async (req, res) => {
     try {
-      const users = await User.find({}).exec();
-      console.log('userssss', users)
+      const users = await User.find({}).populate('data').exec();
+      users.forEach(user => {
+        const userdata = user.data;
+        let drivingMinute = 0;
+        let count = 0, speedsum = 0, batch = 0;
+
+        for (let i = 0; i < userdata.length; i++) {
+          count += userdata[i].detected;
+
+          speedsum += userdata[i].speed;
+
+          if (i % 9 == 0) batch = 10;
+          else batch = i % 10 + 1;
+          if (i % 10 == 9) {
+            const aveSpeed = speedsum / batch;
+            if (count >= 6 && aveSpeed >= 5) drivingMinute += 10;
+            count = 0; speedsum = 0;
+          } else if (i == userdata.length - 1) {
+            const aveSpeed = speedsum / batch;
+            if (count >= 0.6 * (i % 10 + 1) && aveSpeed >= 5) drivingMinute += i % 10 + 1;
+          }
+        }
+        user.learningTime = drivingMinute / 60.0;
+      });
       res.send({ users });
     } catch (error) {
       res.status(422).json({
         errors: { global: 'Unknown error' },
       });
+    }
+  });
+
+  app.get('/api/user/one/:userid', async (req, res) => {
+    try {
+      const userid = req.params.userid;
+      const user = await User.findById(userid).populate('data').exec();
+
+      if (!user) return res.status(400).json({
+        errors: { global: 'User not found' }
+      })
+
+      const userdata = user.data;
+      let drivingMinute = 0;
+      let count = 0, speedsum = 0, batch = 0;
+
+      for (let i = 0; i < userdata.length; i++) {
+        count += userdata[i].detected;
+
+        speedsum += userdata[i].speed;
+
+        if (i % 9 == 0) batch = 10;
+        else batch = i % 10 + 1;
+        if (i % 10 == 9) {
+          const aveSpeed = speedsum / batch;
+          if (count >= 6 && aveSpeed >= 5) drivingMinute += 10;
+          count = 0; speedsum = 0;
+        } else if (i == userdata.length - 1) {
+          const aveSpeed = speedsum / batch;
+          if (count >= 0.6 * (i % 10 + 1) && aveSpeed >= 5) drivingMinute += i % 10 + 1;
+        }
+      }
+
+      console.log('learning minute', drivingMinute);
+
+      user.learningTime = drivingMinute / 60.0;
+      return res.send({ user })
+    }
+    catch (error) {
+      console.log(error)
+      res.status(400).json({
+        errors: {
+          global: 'Unknown error'
+        }
+      })
     }
   });
 };

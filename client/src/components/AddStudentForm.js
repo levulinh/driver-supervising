@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardGroup, Col, Container, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
-import { Form, Input, Message, Button, Dropdown } from 'semantic-ui-react'
-import Validator from 'validator'
+import { Container,Form, Input, Message, Button, Dropdown } from 'semantic-ui-react'
+// import Validator from 'validator'
 import PropTypes from 'prop-types'
 import InlineError from './InlineError'
 
@@ -49,7 +48,7 @@ export default class AddStudentForm extends Component {
   }
 
   render() {
-    const { data, errors, loading, user } = this.state
+    const { data, errors, loading } = this.state
     return (
 
       <Container>

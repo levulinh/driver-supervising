@@ -3,11 +3,7 @@ export default {
     {
       name: 'Bảng điều khiển',
       url: '/admin/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
+      icon: 'icon-speedometer'
     },
     {
       title: true,
@@ -20,13 +16,13 @@ export default {
     },
     {
       name: 'Danh sách học viên',
-      url: '/admin/theme/colors',
-      icon: 'icon-drop',
+      url: '/admin/dashboard',
+      icon: 'icon-list',
     },
     {
       name: 'Lịch thi sát hạch',
       url: '/admin/theme/typography',
-      icon: 'icon-pencil',
+      icon: 'icon-calendar',
     },
     {
       title: true,
@@ -42,78 +38,12 @@ export default {
       icon: 'icon-pencil',
     },
     {
-      name: 'Notifications',
-      url: '/admin/notifications',
-      icon: 'icon-bell',
-      children: [
-        {
-          name: 'Alerts',
-          url: '/admin/notifications/alerts',
-          icon: 'icon-bell',
-        },
-        {
-          name: 'Badges',
-          url: '/admin/notifications/badges',
-          icon: 'icon-bell',
-        },
-        {
-          name: 'Modals',
-          url: '/admin/notifications/modals',
-          icon: 'icon-bell',
-        },
-      ],
-    },
-    {
-      name: 'Widgets',
-      url: '/admin/widgets',
-      icon: 'icon-calculator',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
       divider: true,
     },
     {
       title: true,
       name: 'Hỗ trợ',
     },
-    {
-      name: 'Pages',
-      url: '/admin/pages',
-      icon: 'icon-star',
-      children: [
-        {
-          name: 'Đăng xuất',
-          url: '/login',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Register',
-          url: '/admin/register',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 404',
-          url: '/admin/404',
-          icon: 'icon-star',
-        },
-        {
-          name: 'Error 500',
-          url: '/admin/500',
-          icon: 'icon-star',
-        },
-      ],
-    },
-    {
-      name: 'Đăng xuất',
-      url: '/admin/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
+   
   ],
 };

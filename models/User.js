@@ -21,6 +21,9 @@ const UserSchema = new Schema({
     type: String, required: true,
   },
   model: String,
+  data: [
+    {type: mongoose.Schema.Types.ObjectId, ref: 'Data'}
+  ],
   learningTime: {
     type: Number, required: true, default: 0,
   },
