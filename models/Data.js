@@ -3,7 +3,12 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const DataSchema = new Schema({
-  location: [Number],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
+  lat: Number,
+  long: Number,
   speed: Number,
   detected: Number,
 });

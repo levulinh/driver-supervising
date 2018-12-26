@@ -115,7 +115,7 @@
             "description": "Các thông tin về User",
             "in": "body",
             "schema": {
-              "$ref":"#/definitions/User"
+              "$ref": "#/definitions/User"
             }
           }
         ],
@@ -127,9 +127,39 @@
               "$ref": "#/definitions/User"
             }
           },
-          "401": {
+          "400": {
             "description": "Lỗi lấy thông tin user"
           }
+        }
+      }
+    },
+    "/api/data/add": {
+      "post": {
+        "tags": [
+          "Data",
+          "User"
+        ]
+      },
+      "parameters": [
+        {
+          "name": "data",
+          "description": "Thông tin về data mới, user là id của user sở hữu data này",
+          "in": "body",
+          "schema": {
+            "$ref": "#/definitions/Data"
+          }
+        }
+      ],
+      "description": "Thêm Data mới ứng với người dùng vào csdl",
+      "responses":{
+        "200": {
+          "description": "Data mới được thêm",
+          "schema":{
+            "$ref":"#/definitions/Data"
+          }
+        },
+        "400": {
+          "description": "Không thể thêm data"
         }
       }
     }
@@ -181,6 +211,32 @@
         },
         "password": {
           "type": "string"
+        }
+      }
+    },
+    "Data": {
+      "required": [
+        "user",
+        "lat",
+        "long",
+        "speed",
+        "detected"
+      ],
+      "properties": {
+        "user": {
+          "type": "string"
+        },
+        "lat": {
+          "type": "number"
+        },
+        "long": {
+          "type": "number"
+        },
+        "speed": {
+          "type": "number"
+        },
+        "detected": {
+          "type": "number"
         }
       }
     },

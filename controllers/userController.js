@@ -58,7 +58,7 @@ export default app => {
       } = req.body;
       const user = await User.findOne({ idCode });
       if (user) {
-        return res.status(401).json({
+        return res.status(400).json({
           errors: { global: 'Người dùng này đã tồn tại' },
         });
       }
@@ -79,6 +79,7 @@ export default app => {
   app.get('/api/user/all', async (req, res) => {
     try {
       const users = await User.find({}).exec();
+      
       res.send({ users });
     } catch (error) {
       res.status(422).json({

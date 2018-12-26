@@ -1,6 +1,7 @@
 import passport from 'passport';
 import swaggerUi from 'swagger-ui-express';
 import UserController from './controllers/userController';
+import DataController from './controllers/dataController';
 
 const http = require('http');
 const createError = require('http-errors');
@@ -31,6 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 UserController(app);
+DataController(app);
 
 app.use(logger('dev'));
 app.use(express.json());
