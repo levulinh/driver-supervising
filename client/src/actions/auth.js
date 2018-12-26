@@ -37,6 +37,14 @@ export const addStudentSuccess = (student) => ({
     type: type.ADD_STUDENT,
     student
 })
+export const allStudents = () => (dispatch) =>
+    api.admin.allStudents().then(students => {
+        dispatch(allStudentsSuccess(students))
+    });
+export const allStudentsSuccess = (students) => ({
+    type: type.ALL_STUDENTS,
+    students
+})
 
 export const autoLogin = () =>
     (dispatch) => api.user.autoLogin().then(user => {

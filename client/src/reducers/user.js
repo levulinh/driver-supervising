@@ -12,6 +12,12 @@ const Authenticate = (state = {}, action = {}) => {
         case type.LOGIN:
 
             return action.user
+        case type.ADD_STUDENT:
+
+            return action.student
+        case type.ALL_STUDENTS:
+
+            return action.students
 
         case type.SIGNOUT:
             document.cookie = "userId=" + action.user._id;

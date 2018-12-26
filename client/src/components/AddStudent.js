@@ -6,11 +6,13 @@ import {connect} from 'react-redux'
 import { addStudent } from '../actions/auth'
 
 class AddUser extends Component {
-  submit = data => this.props.addStudent(data)
+  submit = data => this.props.addStudent(data).then(() => {
+    
+  })
   render() {
     return (
     <Container>
-      <AddStudentForm submit={this.submit}/>
+      <AddStudentForm submit={this.submit} user = {this.props.user}/>
     </Container>
     )
   }
@@ -23,4 +25,8 @@ AddUser.propTypes = {
   }).isRequired,
   addStudent: PropTypes.func.isRequired
 }
-export default connect(null, { addStudent })(AddUser)
+const mapStateToProps = state => {
+  const { user } = state
+  return { user }
+}
+export default connect(mapStateToProps, { addStudent })(AddUser)

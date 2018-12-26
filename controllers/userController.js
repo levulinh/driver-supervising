@@ -79,6 +79,7 @@ export default app => {
   app.get('/api/user/all', async (req, res) => {
     try {
       const users = await User.find({}).exec();
+      console.log('userssss', users)
       res.send({ users });
     } catch (error) {
       res.status(422).json({

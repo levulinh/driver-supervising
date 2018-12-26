@@ -6,8 +6,8 @@ export default {
             axios.post('/api/admin/login', { email: credentials.email, password: credentials.password })
                 .then(res =>
                     res.data.user
-                    )
-                .catch(e => 
+                )
+                .catch(e =>
                     console.log(e.toString())),
 
         autoLogin: () => axios.get('/users/auto-login')
@@ -25,11 +25,27 @@ export default {
     },
     admin: {
         addStudent: credentials =>
-            axios.post('/api/admin/login', { email: credentials.email, password: credentials.password })
-                .then(res =>
+            axios.post('/api/user/add', {
+                idCode: credentials.idCode,
+                fullName: credentials.fullName,
+                phone: credentials.phone,
+                dob: credentials.dob,
+                certiType: credentials.certiType
+            })
+                .then(
+                    
+                    
+                    
+                    res =>
                     res.data.user
-                    )
-                .catch(e => 
+                )
+                .catch(e =>
+                    console.log(e.toString())),
+        allStudents: () =>
+            axios.get('/api/user/all').then(
+                res => res.data.users
+            )
+                .catch(e =>
                     console.log(e.toString())),
 
 
