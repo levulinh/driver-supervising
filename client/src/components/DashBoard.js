@@ -14,13 +14,7 @@ export default class DashBoard extends Component {
   render() {
     return (
       <Container fluid>
-        <HeaderMenu />
-        <Grid divided>
-          <Grid.Column width={4}>
-            <VerticalMenu />
-          </Grid.Column>
-          <Grid.Column width={12}>
-            <h2>Bảng kết quả</h2>
+       
             <Table striped>
               <Table.Header>
                 <Table.Row>
@@ -34,10 +28,6 @@ export default class DashBoard extends Component {
                 </Table.Row>
               </Table.Header>
             </Table>
-
-
-          </Grid.Column>
-        </Grid>
       </Container>
 
     )

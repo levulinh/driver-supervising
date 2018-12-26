@@ -9,4 +9,5 @@ module.exports = {
     SIGN_UP:'sign up',
     FB_LOGIN:'facebook login',
     GG_LOGIN:'google login',
+    ADD_STUDENT:'add student'
 }

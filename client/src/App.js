@@ -1,20 +1,26 @@
-import React, {
-  Component
-} from 'react';
-import {
-  Route
-} from 'react-router-dom';
-import DashBoard from './components/DashBoard';
-import LoginPage from './components/LoginPage'
-import AddUser from './components/AddUser';
-const App = () => (
-  <div>
-    <Route path="/" exact component={DashBoard} />
-    <Route path="/login" exact component={LoginPage} />
-    <Route path="/addUser" exact component={AddUser} />
-  </div>
+import React, { Component } from 'react';
+import { HashRouter, Route, Switch,BrowserRouter } from 'react-router-dom';
+import './App.scss';
 
-)
+// Containers
+import { DefaultLayout } from './containers';
+// Pages
+import { Login, Page404, Page500, Register } from './views/Pages';
 
+
+class App extends Component {
+  render() {
+    return (
+ 
+        <Switch>
+          <Route exact path="/login" name="Login Page" component={Login} />
+          <Route exact path="/register" name="Register Page" component={Register} />
+          <Route exact path="/404" name="Page 404" component={Page404} />
+          <Route exact path="/500" name="Page 500" component={Page500} />
+          <Route path="/" name="Home" component={DefaultLayout} />
+        </Switch>
+    );
+  }
+}
 
 export default App;

@@ -5,7 +5,7 @@ import { Input, Menu, Button, Image } from 'semantic-ui-react'
 const HeaderMenu = () => (
     <Menu>
         <Menu.Item>
-            <Image src='/logolab.png' width="50" />
+            <Image src='/logoLab.png' width="50" />
         </Menu.Item>
         <Menu.Item >
             <Input className='icon' icon='search' placeholder='Tìm kiếm theo tên' />

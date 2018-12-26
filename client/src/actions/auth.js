@@ -29,6 +29,15 @@ export const login = credentials => dispatch =>
         dispatch(loginSuccess(user))
     });
 
+export const addStudent = credentials => dispatch =>
+    api.admin.addStudent(credentials).then(student => {
+        dispatch(addStudentSuccess(student))
+    });
+export const addStudentSuccess = (student) => ({
+    type: type.ADD_STUDENT,
+    student
+})
+
 export const autoLogin = () =>
     (dispatch) => api.user.autoLogin().then(user => {
         dispatch(autoLoginSuccess(user))

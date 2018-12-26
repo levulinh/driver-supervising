@@ -5,7 +5,7 @@ export default {
         login: credentials =>
             axios.post('/api/admin/login', { email: credentials.email, password: credentials.password })
                 .then(res =>
-                    res.data.data.user
+                    res.data.user
                     )
                 .catch(e => 
                     console.log(e.toString())),
@@ -21,6 +21,17 @@ export default {
             .then(res => res.data.user),
         ggLogin: accessToken => axios.post('/users/oauth/google', { access_token: accessToken })
             .then(res => res.data.user),
+
+    },
+    admin: {
+        addStudent: credentials =>
+            axios.post('/api/admin/login', { email: credentials.email, password: credentials.password })
+                .then(res =>
+                    res.data.user
+                    )
+                .catch(e => 
+                    console.log(e.toString())),
+
 
     }
 }
