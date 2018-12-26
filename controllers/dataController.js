@@ -11,7 +11,7 @@ export default app => {
                 });
             }
 
-            const newData = new Data({
+            const newData = await new Data({
                 user,
                 lat,
                 long,
@@ -19,13 +19,15 @@ export default app => {
                 detected
             }).save();
 
-            await User.findByIdAndUpdate(user, { data: { $push: newData.id } })
+            await User.findByIdAndUpdate(user, { $push: {data: newData.id } })
 
-            return res.send(newData);
+            return res.send({data: newData});
         } catch (error) {
+            console.log(error)
             return res.status(400).json({
                 errors: { global: 'Unkown error' }
             });
         }
     });
+
 };
