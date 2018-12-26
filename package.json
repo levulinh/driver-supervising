@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "NPM_CONFIG_PRODUCTION=false npm run build && node bin/production",
+    "start": "NPM_CONFIG_PRODUCTION=false node bin/dev",
     "server": "nodemon bin/dev",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
