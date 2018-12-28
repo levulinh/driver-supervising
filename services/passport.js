@@ -32,7 +32,7 @@ passport.use(
       try {
         const user = await Admin.findOne({ email });
         if (!user) {
-          return done(null, false, { message: { errors: { global: 'Người dùng không tồn tại' } } });
+          return done(null, false, { message: { errors: { global: 'Tài khoản không tồn tại' } } });
         }
         if (!await bcrypt.compare(password, user.password)) {
           return done(null, false, { message: { errors: { global: 'Mật khẩu nhập vào không đúng' } } });

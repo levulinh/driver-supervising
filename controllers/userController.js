@@ -59,7 +59,7 @@ export default app => {
       const user = await User.findOne({ idCode });
       if (user) {
         return res.status(400).json({
-          errors: 'Người dùng này đã tồn tại'
+          errors:{global:'Học viên này đã tồn tại'} 
         });
       }
 
